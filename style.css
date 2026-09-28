@@ -476,7 +476,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   background: linear-gradient(180deg, #1d2a3a, #0e1318);
   box-shadow: -28px 126px 64.5px rgba(0, 0, 0, .04);
 }
-.how__intro { display: flex; flex-direction: column; gap: 40px; width: 414px; }
+.how__intro { position: sticky; top: 120px; display: flex; flex-direction: column; gap: 40px; width: 414px; } /* fica no topo enquanto os passos rolam (abaixo do header fixo) */
 .how__head { display: flex; flex-direction: column; gap: 32px; }
 .how__title { font-size: 40px; font-weight: 400; line-height: 1.2; letter-spacing: -.8px; }
 .how__lead { font-size: 19.2px; line-height: 1.2; color: rgba(242, 245, 248, .7); }
@@ -761,6 +761,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 
   .how__card { flex-direction: column; gap: 56px; padding: 56px 48px; }
   .how__intro, .how__steps { width: 100%; }
+  .how__intro { position: static; } /* em coluna única não há o que acompanhar */
 
   .portfolio__head { width: auto; }
   .pf-grid { grid-template-columns: repeat(2, 1fr); }
