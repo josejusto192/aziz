@@ -525,7 +525,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   text-box: trim-both cap alphabetic; transition: background-color .2s, border-color .2s;
 }
 .pf-filters button:hover { background: rgba(242, 245, 248, .08); }
-.pf-filters button[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); }
+.pf-filters button[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #0e1318; } /* texto escuro: branco no azul claro não tem contraste */
 
 .pf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 20px; list-style: none; }
 .pf-grid img { width: 100%; aspect-ratio: 305 / 224; object-fit: cover; border-radius: 20px; }
