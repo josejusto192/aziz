@@ -531,6 +531,8 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 .about__inner { position: relative; display: flex; align-items: center; justify-content: space-between; }
 .about__media { position: relative; flex: 0 0 593px; }
 .about__photo { width: 100%; height: auto; border-radius: 20px; }
+/* degradê escuro suave embaixo da foto: o logo branco fica legível sobre a planta clara */
+.about__media::before { content: ""; position: absolute; inset: 0; border-radius: 20px; pointer-events: none; background: linear-gradient(to top, rgba(14, 19, 24, .6), rgba(14, 19, 24, 0) 45%); }
 .about__logo { position: absolute; left: 80px; bottom: 80px; width: 110px; height: 48px; }
 .about__media .badge { left: 100%; width: 178px; height: 178px; }
 .badge--dark text { fill: #0e1318; }
@@ -684,6 +686,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 1100px) {
+  h1, h2 { text-wrap: balance; } /* sem palavra sozinha na última linha dos títulos */
   .header__toggle { display: flex; }
   .header__nav {
     position: absolute; top: calc(100% + 8px); left: 0; right: 0;
@@ -766,6 +769,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   .header__inner { height: 76px; }
   .header__logo img { width: 92px; height: 40px; }
   .header__cta { display: none; } /* no mobile o header fica só com logo + menu */
+  .tag--wide { letter-spacing: 2.4px; } /* "Problemas que a gente encontra" cabe em 1 linha até 320px */
 
   /* imagem própria do mobile (Figma "Aziz-bg-mobile"), presa embaixo; o padding-bottom abre espaço para a pessoa */
   .hero { height: auto; padding: 116px 0 96vw; background: #0e1318 url(assets/hero-bg-mobile.jpg) no-repeat center bottom / cover; }
@@ -927,6 +931,13 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   .wa-float { right: 16px; bottom: 16px; width: 54px; height: 54px; }
   .wa-float img { width: 26px; height: 26px; }
   .svc-card__media { padding: 15px var(--pad); }
+}
+
+/* telas bem estreitas (≤359px): o botão principal encolhe só o necessário para caber sem quebrar */
+@media (max-width: 359px) {
+  .btn--primary { gap: 10px; padding-inline: 14px; font-size: 13.5px; }
+  .btn--primary img { width: 28px; height: 28px; }
+  .tag--wide { letter-spacing: 1.68px; }
 }
 
 /* ===== "Por que a Aziz" no celular (≤600px): pilha de cards (fichário) =====

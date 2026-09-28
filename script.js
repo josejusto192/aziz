@@ -130,13 +130,18 @@ const draws = document.querySelectorAll('[data-scroll-draw]');
 if (draws.length && !reduceMotion.matches) {
   const update = () => draws.forEach(el => {
     const top = el.getBoundingClientRect().top / innerHeight;
-    const p = Math.min(1, Math.max(0, (.85 - top) / .4));
+    const items = el.parentElement.querySelectorAll('li');
+    // enquanto algum ícone ainda está surgindo (entrada ao rolar), a linha para a 90% do caminho, antes dele
+    const visiveis = [...items].every(li => !li.classList.contains('entra') || getComputedStyle(li).opacity === '1');
+    const p = Math.min(visiveis ? 1 : .9, Math.max(0, (.85 - top) / .4));
     el.style.setProperty('--p', p.toFixed(3));
     // linhas completas: os ícones "recebem" o traço (pulso no CSS)
-    el.parentElement.querySelectorAll('li').forEach(li => li.classList.toggle('is-reached', p >= .98));
+    items.forEach(li => li.classList.toggle('is-reached', p >= .98));
   });
   addEventListener('scroll', update, { passive: true });
   addEventListener('resize', update);
+  // quando a entrada de um ícone termina, a linha completa mesmo sem rolar
+  document.addEventListener('transitionend', e => e.propertyName === 'opacity' && e.target.closest('.experience__list') && update());
   update();
 }
 
@@ -370,7 +375,8 @@ if (slider && !reduceMotion.matches) {
 // A classe .entra é posta aqui (não no HTML): sem JS, sem IntersectionObserver ou com "reduzir movimento",
 // os cards aparecem normalmente. O carrossel de Serviços fica de fora (tem animação própria e clones).
 const gruposEntrada = [
-  '.experience__list > li',      // Experiência (4)
+  // Experiência: os ícones entram junto com o card (gatilho), bem antes de as linhas animadas chegarem neles
+  { itens: '.experience__list > li', gatilho: '.experience__card' },
   '.problems__list > li',        // Problemas, lista com ícones (4)
   '.why__row--top .why-card',    // Por que a Aziz, linha de cima (3)
   '.why__row--bottom .why-card', // Por que a Aziz, linha de baixo (3)
@@ -380,19 +386,24 @@ const gruposEntrada = [
   '.faq__list > .faq__item',     // Dúvidas frequentes (6)
 ];
 if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+  const alvos = new Map(); // elemento observado -> itens que ele faz entrar
   const observador = new IntersectionObserver(entradas => {
     entradas.forEach(entrada => {
       if (!entrada.isIntersecting) return;
-      entrada.target.classList.add('entrou');
+      alvos.get(entrada.target).forEach(el => el.classList.add('entrou'));
       observador.unobserve(entrada.target);
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 
-  gruposEntrada.forEach(seletor => {
-    document.querySelectorAll(seletor).forEach((el, i) => {
+  gruposEntrada.forEach(grupo => {
+    const { itens, gatilho } = typeof grupo === 'string' ? { itens: grupo } : grupo;
+    const els = [...document.querySelectorAll(itens)];
+    els.forEach((el, i) => {
       el.classList.add('entra');
       el.style.setProperty('--entra-i', i); // escalona a entrada dentro do grupo (não é --i: a pilha já usa)
-      observador.observe(el);
     });
+    // com gatilho, um elemento só faz o grupo todo entrar; sem gatilho (ou se ele não existir), cada item se observa
+    const g = gatilho && document.querySelector(gatilho);
+    (g ? [[g, els]] : els.map(el => [el, [el]])).forEach(([alvo, lista]) => { alvos.set(alvo, lista); observador.observe(alvo); });
   });
 }
