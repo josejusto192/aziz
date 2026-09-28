@@ -1,3 +1,15 @@
+/* Archivo servida pelo próprio site (subconjunto latino do Google Fonts, variável 300–800): sem CSS de terceiros
+   bloqueando a renderização. O index.html faz preload deste arquivo. */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 300 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(assets/fonts/archivo-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   /* cantos claros das seções com topo/base em curva (curva de 199×45px, a mesma das ondas) */
   --curve-tl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 344 45'%3E%3Cpath fill='%23f2f5f8' d='M0 0H344C251.1 0 237.9 45 145 45H0Z'/%3E%3C/svg%3E");
@@ -106,7 +118,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 /* ===== HERO ===== */
 .hero {
   position: relative; height: 871px;
-  background: #0e1318 url(assets/hero-bg.jpg) no-repeat calc(50% - 31px) 0 / auto 100%;
+  background: #0e1318 url(assets/hero-bg.webp) no-repeat calc(50% - 31px) 0 / auto 100%;
 }
 .hero__inner { position: relative; height: 100%; padding-top: 207px; }
 .hero__content { display: flex; flex-direction: column; gap: 37px; width: 600px; margin-left: -2px; } /* Figma: x=318 */
@@ -258,7 +270,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   background: radial-gradient(50% 100% at 50% 0, #1d2a3a, #151e29 50%, #0d1218);
 }
 /* recorte claro + seta no topo, e onda na borda de baixo (vetores do Figma girados 180°) */
-.why__notch { position: absolute; top: -15.7px; left: calc(50% - 57.2px); width: 114.4px; height: 45.7px; max-width: none; transform: rotate(180deg); clip-path: inset(0 0 15.7px 0); } /* sem a sombra girada para cima */
+.why__notch { position: absolute; top: -15.7px; left: calc(50% - 57.2px); width: 114.4px; height: 45.7px; max-width: none; transform: rotate(180deg); clip-path: inset(0 0 13.7px 0); } /* sem a sombra girada para cima; a base (no SVG) passa 2px da borda da seção e cobre a emenda em qualquer zoom */
 .why__arrow { position: absolute; top: -10.25px; left: calc(50% - 9.2px); width: 18.41px; height: 30.5px; }
 .why__wave { position: absolute; top: 100%; right: -825.5px; width: 2426.5px; height: 45px; max-width: none; transform: rotate(180deg); }
 
@@ -282,9 +294,10 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 .why-card--row div { display: flex; flex-direction: column; gap: 24px; }
 .why-card--photo {
   justify-content: flex-end; height: 298px; border: 1px solid var(--white-20); color: var(--white);
+  --foto: url(assets/why-photo.webp);
   background:
     linear-gradient(rgba(14, 19, 24, .51), rgba(14, 19, 24, .95) 71.57%) -22px -33px / 700px 382px no-repeat,
-    url(assets/why-photo.jpg) -22px -33px / 700px 382px no-repeat,
+    var(--foto) -22px -33px / 700px 382px no-repeat,
     #0e1318;
 }
 .why-card--blue {
@@ -424,7 +437,8 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 /* o mapa (MapLibre + OpenFreeMap) entra por cima do "pôster" — o print do Figma — quando termina de carregar */
 .visits__map {
   flex: 0 1 638px; min-width: 0; height: 415px; border-radius: 24px; overflow: hidden; /* em desktops estreitos o mapa cede espaço ao texto */
-  background: #0c0c0c url(assets/map-poster.jpg) center / cover;
+  --foto: url(assets/map-poster.webp);
+  background: #0c0c0c var(--foto) center / cover;
 }
 .visits__map > * { transition: opacity .4s; }
 .visits__map:not(.is-ready) > * { opacity: 0; }
@@ -596,7 +610,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   content: ""; position: absolute; top: 0; bottom: 0; right: 0; left: calc(25% - 1230.8px);
   background:
     linear-gradient(rgba(14, 19, 24, 0) 35.66%, rgba(14, 19, 24, .84) 54.35%, rgba(14, 19, 24, .98) 74.26%),
-    url(assets/hero-bg.jpg) 0 0 / auto 100% no-repeat;
+    url(assets/hero-bg.webp) 0 0 / auto 100% no-repeat;
 }
 /* contorno de 1px do Figma, desenhado por cima de tudo (como o stroke "inside"): sobre o painel branco quase some */
 .contact__card::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(14, 19, 24, .03); border-radius: inherit; pointer-events: none; }
@@ -653,6 +667,12 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 .footer__col a:hover { color: var(--blue); }
 .footer__bottom { border-top: 1px solid rgba(242, 245, 248, .2); background: #090c10; }
 .footer__bottom .container { display: flex; justify-content: space-between; gap: 24px; padding: 40px 0; font-size: 16px; font-weight: 300; line-height: 1.2; }
+
+/* ===== MÍDIA ABAIXO DA DOBRA =====
+   Com JS (classe .js no <html>), a foto de fundo (--foto) e as fotos do carrossel dos blocos [data-perto] só
+   carregam quando o bloco chega a ~1500px da tela — o script.js põe .perto. Sem JS, tudo carrega normalmente. */
+.js [data-perto]:not(.perto) { --foto: none; }
+.js .carousel:not(.perto) .svc-card__media > img { display: none; } /* img com position: absolute: o layout não muda */
 
 /* ===== ENTRADA DOS CARDS AO ROLAR (classes postas pelo script.js) =====
    translate (e não transform) para não brigar com hovers que usam transform. --entra-i = posição do card no
@@ -755,9 +775,10 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   .contact__card::before { display: none; }
   .contact__intro {
     min-height: 480px; padding: 56px 48px;
+    --foto: url(assets/about-photo.webp);
     background:
       linear-gradient(rgba(14, 19, 24, 0) 35.66%, rgba(14, 19, 24, .84) 54.35%, rgba(14, 19, 24, .98) 74.26%),
-      url(assets/about-photo.jpg) center / cover;
+      var(--foto) center / cover;
   }
   .contact__form { padding: 56px 48px; border-radius: 27px 27px 0 0; } /* a base arredonda junto com o card */
 
@@ -769,10 +790,10 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   .header__inner { height: 76px; }
   .header__logo img { width: 92px; height: 40px; }
   .header__cta { display: none; } /* no mobile o header fica só com logo + menu */
-  .tag--wide { letter-spacing: 2.4px; } /* "Problemas que a gente encontra" cabe em 1 linha até 320px */
+  .tag--wide { letter-spacing: 2.4px; } /* "Problemas que a gente encontra" em 1 linha (abaixo de 360px: bloco max-width 359px) */
 
   /* imagem própria do mobile (Figma "Aziz-bg-mobile"), presa embaixo; o padding-bottom abre espaço para a pessoa */
-  .hero { height: auto; padding: 116px 0 96vw; background: #0e1318 url(assets/hero-bg-mobile.jpg) no-repeat center bottom / cover; }
+  .hero { height: auto; padding: 116px 0 96vw; background: #0e1318 url(assets/hero-bg-mobile.webp) no-repeat center bottom / cover; }
   .hero__inner { padding-top: 0; }
   .hero__content { width: 100%; gap: 16px; margin-left: 0; align-items: center; text-align: center; }
   .hero__content .tag { margin-bottom: 0; font-size: 11px; letter-spacing: 1.2px; line-height: 1.6; }
@@ -937,7 +958,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 @media (max-width: 359px) {
   .btn--primary { gap: 10px; padding-inline: 14px; font-size: 13.5px; }
   .btn--primary img { width: 28px; height: 28px; }
-  .tag--wide { letter-spacing: 1.68px; }
+  .tag--wide { letter-spacing: 1.2px; }
 }
 
 /* ===== "Por que a Aziz" no celular (≤600px): pilha de cards (fichário) =====

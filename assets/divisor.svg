@@ -1,6 +1,6 @@
 <svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="114.4" height="45.7" viewBox="0 0 114.4 45.7" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Divisor - Benef&#195;&#173;cios" filter="url(#filter0_d_0_4)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M57.2 0C80.1545 0 84.7455 30 107.7 30H6.7C29.6545 30 34.2455 0 57.2 0Z" fill="#F2F5F9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M57.2 0C80.1545 0 84.7455 30 107.7 30V32H6.7V30C29.6545 30 34.2455 0 57.2 0Z" fill="#F2F5F9"/>
 </g>
 <defs>
 <filter id="filter0_d_0_4" x="0" y="0" width="114.4" height="45.7" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

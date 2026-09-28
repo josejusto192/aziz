@@ -1,5 +1,19 @@
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)'); // usada pelas animações abaixo
 
+// Mídia abaixo da dobra ([data-perto]): quando o bloco chega a ~1500px da tela, ganha .perto e o CSS libera a foto
+// de fundo (--foto) e as fotos do carrossel. As imagens lazy lá dentro viram eager e já decodificam — no carrossel,
+// os cards fora da área visível do trilho não entram em branco no meio do deslize.
+// A classe .js (posta no <head> só se houver IntersectionObserver) é o que ativa essa espera no CSS.
+if (document.documentElement.classList.contains('js')) {
+  const perto = new IntersectionObserver(entradas => entradas.forEach(({ isIntersecting, target }) => {
+    if (!isIntersecting) return;
+    perto.unobserve(target);
+    target.classList.add('perto');
+    target.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; img.decode().catch(() => {}); });
+  }), { rootMargin: '1500px 0px' });
+  document.querySelectorAll('[data-perto]').forEach(el => perto.observe(el));
+}
+
 // Header: vira pílula de vidro após rolar; no mobile abre/fecha o menu
 const header = document.querySelector('.header');
 const toggle = header.querySelector('.header__toggle');
@@ -26,8 +40,8 @@ if (whySection) {
     const maior = Math.max(...whyCards.map(c => c.offsetHeight));
     whySection.style.setProperty('--altura-card', `${maior}px`);
   };
-  igualarCards();
-  document.fonts.ready.then(igualarCards);
+  // mede com a fonte final e numa tarefa própria (fora da tarefa do carregamento); idem nos blocos abaixo
+  document.fonts.ready.then(() => setTimeout(igualarCards));
   let t;
   addEventListener('resize', () => { clearTimeout(t); t = setTimeout(igualarCards, 150); });
 }
@@ -105,11 +119,14 @@ if (map) {
     }
     // posição do item pelo layout (li.offset*, relativa ao mapa — ignora o translate da entrada) + posição do
     // ícone dentro do item (diferença de retângulos, que também se anula com o translate)
+    // (mede os 4 ícones antes de mexer no SVG: ler e escrever intercalado recalcula o layout a cada ícone)
     const W = map.offsetWidth, H = map.offsetHeight;
-    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-    icons.forEach((icon, i) => {
+    const pos = [...icons].map(icon => {
       const li = icon.parentElement, r = icon.getBoundingClientRect(), lr = li.getBoundingClientRect();
-      const top = li.offsetTop + r.top - lr.top, leftPos = li.offsetLeft + r.left - lr.left;
+      return { r, top: li.offsetTop + r.top - lr.top, leftPos: li.offsetLeft + r.left - lr.left };
+    });
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    pos.forEach(({ r, top, leftPos }, i) => {
       const left = OFFSET[i] < 0;
       const x = W / 2 + OFFSET[i];
       const y = top + r.height / 2;
@@ -121,8 +138,7 @@ if (map) {
     });
   };
   addEventListener('resize', layout);
-  document.fonts.ready.then(layout);
-  layout();
+  document.fonts.ready.then(() => setTimeout(layout));
 }
 
 // Linhas que "desenham" conforme a rolagem: --p vai de 0 (topo do elemento a 85% da tela) a 1 (a 45%)
@@ -142,7 +158,7 @@ if (draws.length && !reduceMotion.matches) {
   addEventListener('resize', update);
   // quando a entrada de um ícone termina, a linha completa mesmo sem rolar
   document.addEventListener('transitionend', e => e.propertyName === 'opacity' && e.target.closest('.experience__list') && update());
-  update();
+  setTimeout(update);
 }
 
 // Serviços: carrossel em loop. O conjunto é duplicado para sempre haver cards dos dois lados.
@@ -151,6 +167,8 @@ if (draws.length && !reduceMotion.matches) {
 const carousel = document.querySelector('[data-carousel]');
 if (carousel) {
   const track = carousel.querySelector('.carousel__track');
+  // nas <img> dos cards, loading="lazy" vem ANTES do src no HTML: na cópia os atributos entram nessa ordem, e com
+  // src primeiro o Chrome baixaria a foto na hora (a cópia ainda está fora da página)
   [...track.children].forEach(card => {
     const c = card.cloneNode(true);
     c.classList.remove('is-active');
@@ -159,7 +177,6 @@ if (carousel) {
     c.querySelectorAll('a').forEach(a => a.tabIndex = -1);
     track.append(c);
   });
-  track.querySelectorAll('img').forEach(img => img.decode().catch(() => {})); // decodifica antes do 1º deslize
 
   const A = 3; // cards à esquerda do ativo (cobre telas de até ~2560px)
   const cards = () => [...track.children];
@@ -188,27 +205,24 @@ if (carousel) {
 
   // Altura real de cada título nos dois estados, medida com uma cópia invisível dentro de um card ativo e de um
   // compacto (herdam as mesmas regras de CSS). Com a escala do compacto já aplicada: é a altura que se vê.
+  // Todas as cópias entram de uma vez e são lidas juntas: um recálculo de layout só (e não um por card).
   const titleHeights = () => {
     const active = track.querySelector('.svc-card.is-active');
-    const probes = [active, active.nextElementSibling].map(card => {
-      const p = card.querySelector('h3').cloneNode(true);
+    const titles = cards().map(card => card.querySelector('h3'));
+    const probes = [active, active.nextElementSibling].map(card => titles.map(h3 => {
+      const p = h3.cloneNode(true);
       p.style.cssText = 'position:absolute;visibility:hidden;height:auto;transition:none';
       card.append(p);
       return p;
+    }));
+    const [ha, hc] = probes.map(list => list.map(p => p.getBoundingClientRect().height));
+    probes.flat().forEach(p => p.remove());
+    titles.forEach((h3, k) => {
+      h3.style.setProperty('--ha', ha[k] + 'px');
+      h3.style.setProperty('--hc', hc[k] + 'px');
     });
-    cards().forEach(card => {
-      const h3 = card.querySelector('h3');
-      const [ha, hc] = probes.map(p => {
-        p.firstElementChild.textContent = h3.textContent;
-        return p.getBoundingClientRect().height + 'px';
-      });
-      h3.style.setProperty('--ha', ha);
-      h3.style.setProperty('--hc', hc);
-    });
-    probes.forEach(p => p.remove());
   };
-  titleHeights();
-  document.fonts.ready.then(titleHeights);
+  document.fonts.ready.then(() => setTimeout(titleHeights));
   addEventListener('resize', titleHeights);
 
   // autoplay: quem manda é a barra de progresso do card ativo (CSS). Pausar a barra pausa a troca.
