@@ -118,7 +118,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
 /* ===== HERO ===== */
 .hero {
   position: relative; height: 871px;
-  background: #0e1318 url(assets/hero-bg.webp) no-repeat calc(50% - 31px) 0 / auto 100%;
+  background: #0e1318 url(assets/hero-bg.webp) no-repeat 50% 0 / auto 100%; /* camada do Figma centralizada (x = −434 em 1920) */
 }
 .hero__inner { position: relative; height: 100%; padding-top: 207px; }
 .hero__content { display: flex; flex-direction: column; gap: 37px; width: 600px; margin-left: -2px; } /* Figma: x=318 */
@@ -614,7 +614,7 @@ html { scroll-padding-top: 100px; } /* âncoras não ficam escondidas atrás do 
   content: ""; position: absolute; top: 0; bottom: 0; right: 0; left: calc(25% - 1230.8px);
   background:
     linear-gradient(rgba(14, 19, 24, 0) 35.66%, rgba(14, 19, 24, .84) 54.35%, rgba(14, 19, 24, .98) 74.26%),
-    url(assets/hero-bg.webp) 0 0 / auto 100% no-repeat;
+    url(assets/contato-bg.webp) 0 0 / auto 100% no-repeat; /* a foto anterior da hero continua no card de contato */
 }
 /* contorno de 1px do Figma, desenhado por cima de tudo (como o stroke "inside"): sobre o painel branco quase some */
 .contact__card::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(14, 19, 24, .03); border-radius: inherit; pointer-events: none; }
@@ -749,7 +749,10 @@ html:has(.svc-modal[open]) .svc-card::after { animation-play-state: paused; }  /
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 1100px) {
-  h1, h2 { text-wrap: balance; } /* sem palavra sozinha na última linha dos títulos */
+  h1, h2 { text-wrap: balance; }
+  /* tablet: a foto (enquadrada para 1920) fica atrás do texto; escurece a esquerda para manter a leitura.
+     No celular (≤767) o .hero troca o fundo inteiro pela imagem própria. */
+  .hero { background-image: linear-gradient(90deg, rgba(14, 19, 24, .82), rgba(14, 19, 24, .55) 55%, rgba(14, 19, 24, 0) 82%), url(assets/hero-bg.webp); } /* sem palavra sozinha na última linha dos títulos */
   .header__toggle { display: flex; }
   .header__nav {
     position: absolute; top: calc(100% + 8px); left: 0; right: 0;
