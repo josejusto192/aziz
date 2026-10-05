@@ -262,6 +262,26 @@ if (carousel) {
   });
 }
 
+// Serviços: "Saiba mais" abre o detalhe do serviço num <dialog> (o texto já está no HTML e é indexável).
+// Fecha no ×, no Esc (nativo) ou no fundo escuro; o botão do modal leva ao formulário com o serviço já escolhido.
+document.addEventListener('click', e => {
+  const abrir = e.target.closest('[data-modal]');
+  if (abrir) {
+    e.preventDefault(); // sem JS o link segue para o formulário
+    document.getElementById(abrir.dataset.modal)?.showModal();
+    return;
+  }
+  const modal = e.target.closest('.svc-modal');
+  if (!modal) return;
+  if (e.target === modal || e.target.closest('.svc-modal__close')) modal.close();
+  const cta = e.target.closest('[data-servico]');
+  if (cta) {
+    modal.close();
+    const select = document.querySelector('[data-wa-form] [name="servico"]');
+    if (select) select.value = cta.dataset.servico;
+  }
+});
+
 // Mapa: MapLibre (open source) + tiles do OpenFreeMap (grátis, sem chave, sem limite), estilo "dark" — o mesmo
 // do Figma. A biblioteca (~280KB) só é baixada quando o mapa chega perto da tela; até lá aparece o pôster.
 const mapBox = document.querySelector('.visits__map');

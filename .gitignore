@@ -1,2 +1,5 @@
 # materiais de origem (ícones já estão embutidos no HTML)
 *.zip
+
+# pedidos e materiais enviados pelo cliente
+Alterações/

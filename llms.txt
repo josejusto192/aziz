@@ -13,16 +13,37 @@ Um só responsável, do diagnóstico à entrega: o engenheiro está à frente do
 
 **Responsável técnico**
 
-- Alberto Fernandes, engenheiro eletricista registrado no CREA-SP. Passou mais de 10 anos coordenando a manutenção e as obras de infraestrutura de redes como Smart Fit e Rappi.
+- Alberto Fernandes, engenheiro eletricista registrado no CREA-SP. Passou mais de 10 anos coordenando a manutenção e as obras de infraestrutura de redes como Smart Fit e Rappi. LinkedIn: https://www.linkedin.com/in/engenheiro-eletricista-ac
 
 **Serviços**
 
-- Empresas, Varejo & Indústria: Manutenção, quadros, padrões de entrada e instalações dedicadas.
-- Parcerias B2B: Para instaladores e prestadores: nós assumimos a burocracia e a responsabilidade técnica.
-- Imóveis Comerciais e Vistorias: Laudo de devolução e recebimento de pontos comerciais e galpões, com vistoria técnica completa.
-- Segurança, Diagnóstico e Laudos: Termografia, consumo, fuga de energia, SPDA e aterramento.
-- Eventos e Estruturas Temporárias: Responsabilidade técnica para geradores, palcos, som e iluminação.
-- Execução, Manutenção Corretiva e Preventiva: Intervenções de campo contra panes, curtos e paralisações.
+- Empresas, Varejo & Indústria: Seu negócio não pode parar. Evite paradas na operação, riscos de incêndio e multas por falta de conformidade técnica centralizando em um único parceiro a manutenção, a montagem, o retrofit e a troca de quadros e circuitos elétricos, a execução de projetos e padrões de entrada e as instalações dedicadas de equipamentos.
+  - Montagem, retrofit e troca de quadros elétricos: Fabricação e montagem de quadros de distribuição e comando, substituição de disjuntores obsoletos, reestruturação de barramentos e modernização de circuitos para eliminar pontos de aquecimento e quedas constantes de energia. Laudos termográficos, SPDA, cabines primárias e aterramentos com ART, para segurança técnica e jurídica.
+  - Pacotes corporativos de regularização: Para gestores de shoppings, administradoras e redes de franquias com alta demanda de laudos e aprovações. Centralize todas as regularizações em um pacote sob medida, otimizando custos e prazos e garantindo o mesmo padrão de excelência em todas as unidades.
+  - Projetos elétricos, padrão de entrada e redimensionamento: Dimensionamento, pedido e confecção de padrão de entrada de energia para comércios e empreendimentos, redimensionamento elétrico e de quadros para aprovação rápida junto às concessionárias, além de quadros gerais e dedicados para automação, ar-condicionado, câmaras frias e equipamentos industriais.
+  - Refrigeração comercial e climatização: Quadros dedicados e dimensionamento elétrico exclusivo para câmaras frias e ar-condicionado, garantindo o funcionamento ininterrupto, sem queda de disjuntores.
+  - Manutenção de redes e shoppings: Gestão preventiva e corretiva com alto rigor técnico, atendendo às exigências documentais de shoppings e grandes redes em elétrica, câmeras de vigilância, entradas de energia, SPDA, fibra óptica e cabine primária.
+  - Residências, comércios e condomínios: Execução e regularização elétrica completa, com 100% da documentação exigida pelas administradoras de condomínios. Projeto e montagem de quadros corretamente dimensionados, troca de disjuntores obsoletos, redimensionamento de cabos que aquecem e aumento de carga para eliminar riscos de curto-circuito e quedas de energia.
+- Parcerias B2B: Você foca em vender e instalar a solução; nós assumimos a burocracia e a infraestrutura. Entregamos a preparação elétrica completa (dimensionamento, passagem de cabos e montagem de quadros dedicados para ar-condicionado, câmaras frias, energia solar, telecom com fibra óptica e painéis de LED), com emissão rápida de ART para você trabalhar com total segurança legal.
+  - Pacotes para instaladores locais: Terceirização da burocracia e da responsabilidade técnica para pequenas empresas de instalação.
+  - Responsabilidade técnica para nichos específicos: Respaldo de um engenheiro especialista em projetos de telecom (fibra óptica), energia solar, CFTV, automação e locação de geradores.
+  - Climatização e ar-condicionado: Adequação de circuitos individuais, ligação elétrica dedicada e emissão de ART para reduzir riscos elétricos em instalações de refrigeração comercial e residencial.
+  - Comunicação visual e fachadas: Regularização de carga e infraestrutura para a instalação segura de painéis de LED e letreiros luminosos.
+- Imóveis Comerciais e Vistorias: Vai entregar ou receber um ponto comercial, galpão ou imóvel residencial? Proteja-se técnica e juridicamente de multas e cobranças indevidas com o laudo de devolução e recebimento de imóvel. Seja para atestar a conformidade na entrega das chaves, seja para resguardar locatário e proprietário contra danos pré-existentes, nossa engenharia faz uma vistoria minuciosa de toda a infraestrutura elétrica, com revisão completa de carga e consumo.
+  - Laudo de devolução e recebimento de imóvel: Proteção técnica e jurídica contra multas, litígios e cobranças indevidas na entrega e no recebimento de imóveis residenciais, comerciais e industriais, com um inventário imparcial e seguro para todas as partes.
+  - Vistorias e gestão de imóveis: Inspeção de quadros de força, telhado, pintura e piso, revisão da carga de entrada e das condições elétricas gerais e de equipamentos como bombas e ar-condicionado, com diagnóstico que garante a segurança jurídica do proprietário ou do inquilino ao entrar ou sair do imóvel.
+  - Reformas residenciais (NBR 16.280): Execução e regularização elétrica de apartamentos, com 100% da documentação exigida pelas administradoras de condomínios.
+- Segurança, Diagnóstico e Laudos: Serviços essenciais de conformidade, eficiência energética e prevenção de acidentes.
+  - Laudos termográficos: Análise infravermelha de quadros e circuitos para identificar aquecimento excessivo, falhas de conexão e riscos operacionais antes que causem paradas ou acidentes.
+  - Diagnóstico de consumo e fuga de energia: Revisão detalhada da carga elétrica para identificar desperdícios na conta de luz e corrigir fugas que comprometem a instalação.
+  - Laudos de SPDA e aterramento: Inspeção minuciosa e adequação às normas vigentes para proteger as estruturas contra descargas atmosféricas.
+- Eventos e Estruturas Temporárias: Gestão técnica para eventos: responsabilidade técnica para geradores, montagem de palcos, som e iluminação, assegurando a proteção do público e a legalização da parte elétrica de eventos de qualquer porte.
+- Execução, Manutenção Corretiva e Preventiva: Serviços práticos de campo e intervenções diretas para blindar a infraestrutura elétrica contra panes, curtos-circuitos e paralisações operacionais.
+  - Montagem, adequação e manutenção de quadros elétricos: Projeto, montagem e reestruturação física de painéis de distribuição e comando, com organização e conformidade.
+  - Manutenção e laudos de cabine primária: Inspeção preventiva e corretiva e ensaios elétricos em subestações de média tensão, garantindo a confiabilidade do fornecimento de energia para indústrias e grandes comércios.
+  - Confecção, adequação e laudos de aterramento (SPDA): Implantação, medição ôhmica e laudos técnicos de sistemas de proteção contra descargas atmosféricas e malhas de aterramento, conforme as normas vigentes.
+  - Troca de disjuntores e componentes: Substituição técnica de dispositivos de proteção desgastados: disjuntores termomagnéticos, barramentos e interruptores diferenciais (DRs).
+  - Modernização de circuitos (retrofit): Substituição de fiação obsoleta e redimensionamento de redes para suportar novas demandas e cargas elevadas sem sobrecarga.
 
 **Como funciona**
 
@@ -36,10 +57,16 @@ Um só responsável, do diagnóstico à entrega: o engenheiro está à frente do
 
 - Vocês atendem emergências? Sim. Chame no WhatsApp, descreva o problema ou envie fotos e o atendimento é priorizado.
 - Quais regiões vocês atendem? Fazemos visitas técnicas em São Paulo, São Bernardo do Campo, Santo André, São Caetano do Sul, Mauá e Guarulhos, com base em São Bernardo do Campo (Av. do Taboão, 2700).
+- Que tipos de negócio e imóvel vocês atendem? Empresas, comércios e redes de varejo, shoppings, academias, supermercados, lojas de conveniência, postos de combustível e adegas, além de condomínios e residências, em São Paulo e no ABCD. Executamos reformas elétricas, montagem de quadros elétricos, modernização de circuitos e troca de disjuntores.
 - Os serviços saem com ART? Sim. Toda execução tem responsabilidade técnica de engenheiro eletricista registrado no CREA-SP, com emissão de ART.
+- Por que contratar engenharia elétrica e não só um eletricista? Porque o mesmo responsável cuida do projeto, da ART e da execução física. São mais de 10 anos em obras de infraestrutura para grandes redes como Smart Fit e Rappi, com liderança técnica de engenheiro eletricista registrado no CREA-SP. Resolvemos o problema na prática, não só no papel, e entregamos o sistema 100% seguro e pronto para funcionar.
+- O que entra na execução de uma obra elétrica? Da instalação do padrão de entrada de energia e das estruturas de passagem de cabos à montagem de quadros elétricos e de comando, com infraestrutura dedicada para iluminação, PDVs, ar-condicionado, refrigeração comercial e câmaras frias, além de câmeras de vigilância, SPDA e telecom com fibra óptica.
 - Quais laudos vocês emitem? Laudos termográficos, de SPDA e aterramento, além de laudo de devolução e recebimento de imóveis comerciais e galpões.
+- Quais normas técnicas vocês seguem? Os serviços e laudos seguem as normas NBR 5410 (instalações elétricas de baixa tensão), NBR 5419 (proteção contra descargas atmosféricas) e NBR 16.280 (reformas em edificações). Essa adequação protege a operação contra multas e riscos de incêndio.
+- Como evitar quedas de energia no meu comércio? Com manutenção elétrica preventiva e infraestrutura dedicada para iluminação, ar-condicionado e câmaras frias. Atendemos comércios, shoppings e condomínios, porque o seu negócio não pode parar.
+- Dá para reduzir a conta de luz da empresa? Sim, com retrofit elétrico e eficiência energética: modernizamos circuitos obsoletos, substituímos interruptores e eliminamos fugas de energia e o aquecimento de cabos, que além de encarecer a conta colocam o patrimônio em risco.
 - Como funciona o orçamento? Depois da visita técnica, você recebe uma proposta clara com o que será feito, o prazo de execução e a responsabilidade técnica.
-- Vocês trabalham com instaladores e outras empresas? Sim. Na parceria B2B, você vende e nós cuidamos do dimensionamento, dos cabos e da responsabilidade técnica, com vistoria e acompanhamento.
+- Vocês trabalham com instaladores e outras empresas? Sim. Na parceria B2B, você vende e nós cuidamos do dimensionamento, da passagem de cabos e da responsabilidade técnica, com emissão rápida de ART para instaladores de ar-condicionado, energia solar e telecomunicações, além de vistoria e acompanhamento.
 
 ## Site
 
